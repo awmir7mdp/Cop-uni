@@ -1,0 +1,54 @@
+class Calculator {
+public:
+    //floor
+    int floor(double number) {
+        return static_cast<int>(number);
+    }
+
+    // add
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    // max1
+    double max1(double a, double b) {
+        return (a > b) ? a : b;
+    }
+
+    // find1
+    bool find1(const std::string& str, char ch) {
+        return str.find(ch) != std::string::npos;
+    }
+
+    // max2
+    int max2(const std::vector<int>& arr) {
+        if (arr.empty()) 
+            throw std::invalid_argument("Array cannot be empty.");
+        }
+        return *std::max_element(arr.begin(), arr.end());
+    }
+}
+
+int main() {
+    Calculator calc;
+
+    //  floor
+    std::cout << "Floor of 3.7: " << calc.floor(3.7) << std::endl;
+
+    //  add
+    std::cout << "Sum of 4 and 5: " << calc.add(4, 5) << std::endl;
+
+    // آزمایش متد max1
+    std::cout << "Max of 3.1 and 5.2: " << calc.max1(3.1, 5.2) << std::endl;
+ 
+//  find1
+    std::string testStr = "hello";
+    char testChar = 'e';
+    std::cout << "Character 'e' in 'hello': " << (calc.find1(testStr, testChar) ? "true" : "false") << std::endl;
+
+    //  max2
+    std::vector<int> testArr = {1, 3, 5, 2, 8, 6};
+    std::cout << "Max of array {1, 3, 5, 2, 8, 6}: " << calc.max2(testArr) << std::endl;
+
+    return 0;
+}
